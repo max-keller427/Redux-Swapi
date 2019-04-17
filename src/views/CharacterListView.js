@@ -9,9 +9,9 @@ class CharacterListView extends React.Component {
   constructor(props) {
     // console.log(props);
     super(props);
-    this.state = {
-      characters: this.props.characters
-    };
+    // this.state = {
+    //   characters: this.props.characters
+    // };
   }
 
   // getData = e => {
@@ -21,7 +21,7 @@ class CharacterListView extends React.Component {
 
   componentDidMount() {
     // call our action
-    this.setState(this.props.getData);
+    this.props.getData();
   }
 
   render() {
@@ -37,8 +37,8 @@ class CharacterListView extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  characters: state.characters,
-  fetching: state.isLoading
+  characters: state.charsReducer.characters,
+  fetching: state.charsReducer.isLoading
 });
 
 // our mapStateToProps needs to have two properties inherited from state
